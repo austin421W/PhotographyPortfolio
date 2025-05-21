@@ -6,112 +6,7 @@
     <title>Austin Marshall | Marshall Photography</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --font-header: 'Orbitron', sans-serif;
-            --font-body: 'Inter', sans-serif;
-
-            --color-bg: #f8f9fa; /* Very light gray / off-white */
-            --color-text: #343a40; /* Dark gray for readability */
-            --color-text-muted: #6c757d; /* Lighter gray */
-
-            /* Y2K Subtle Accents */
-            --color-lavender-soft: #e6e6fa; /* Lavender */
-            --color-sky-blue-soft: #add8e6; /* Light Blue */
-            --color-iridescent-accent: linear-gradient(135deg, rgba(173, 216, 230, 0.7), rgba(230, 230, 250, 0.7), rgba(211, 211, 211, 0.7)); /* SkyBlue, Lavender, LightGray for iridescence */
-            --color-chrome-light: #e0e0e0;
-            --color-chrome-medium: #c0c0c0;
-            --color-chrome-dark: #a0a0a0;
-            --glow-color: rgba(173, 216, 230, 0.5); /* Soft sky blue glow */
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--font-body);
-            background-color: var(--color-bg);
-            color: var(--color-text);
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
-        /* Navigation (Subtle Y2K) */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 20px 0;
-            background-color: rgba(248, 249, 250, 0.85); /* Semi-transparent bg */
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            border-bottom: 1px solid transparent; /* Prepare for iridescent border */
-            animation: fadeInNav 1s ease-out forwards;
-        }
-        nav .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .nav-logo {
-            font-family: var(--font-header);
-            font-size: 1.5rem;
-            font-weight: 500;
-            color: var(--color-text);
-            text-decoration: none;
-            letter-spacing: 1px;
-            /* Subtle Y2K Text Glow */
-            text-shadow: 0 0 8px rgba(108, 117, 125, 0.2);
-        }
-        .nav-links {
-            list-style: none;
-            display: flex;
-        }
-        .nav-links li {
-            margin-left: 30px;
-        }
-        .nav-links a {
-            text-decoration: none;
-            color: var(--color-text-muted);
-            font-weight: 500;
-            font-size: 0.9rem;
-            padding: 5px 0;
-            position: relative;
-            transition: color 0.3s ease;
-        }
-        .nav-links a::after { /* Iridescent underline on hover */
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--color-iridescent-accent);
-            transition: width 0.3s ease;
-        }
-        .nav-links a:hover {
-            color: var(--color-text);
-        }
-        .nav-links a:hover::after {
-            width: 100%;
-        }
+        /* ... (Your existing CSS rules) ... */
 
         /* Hero Section */
         .hero {
@@ -124,29 +19,20 @@
             position: relative;
             overflow: hidden;
 
-            /* NEW: Background image styles */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://i.imgur.com/jx4rRzV.jpeg'); /* ADD YOUR IMAGE URL HERE */
+            /* Background image styles */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('URL_TO_YOUR_LANDSCAPE_IMAGE.jpg'); /* ADD YOUR IMAGE URL HERE */
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed; /* Makes the background scroll with parallax effect */
         }
-        /* Optional VHS Glitch Text Effect (Subtle) */
-        .hero-content {
-             animation: fadeInContent 1.5s ease-out 0.5s forwards;
-             opacity:0;
-             z-index: 2; /* Ensure content is above the image layer */
-             position: relative; /* Needed for z-index to work */
-        }
+        /* ... (Your existing CSS rules for .hero-content) ... */
+
         .hero h1 {
-            font-family: var(--font-header);
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 400; /* Thinner Orbitron */
-            margin-bottom: 0.5em;
-            color: white; /* Changed to white for better readability on dark image */
-            letter-spacing: 2px;
-            position: relative;
-            text-shadow: 0 0 15px rgba(0,0,0,0.8); /* Added subtle text shadow for contrast */
+            /* ... (Your existing CSS rules for .hero h1) ... */
+            /* Ensure the text color is white for readability against the background image */
+            color: white;
+            text-shadow: 0 0 15px rgba(0,0,0,0.8);
         }
         .hero h1 span { /* For subtle glitch/reveal effect */
             display: inline-block;
@@ -155,355 +41,51 @@
             animation: revealChar 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
         }
         /* Stagger animation for each character in h1 */
-        .hero h1 span:nth-child(1) { animation-delay: 0.3s; }
-        .hero h1 span:nth-child(2) { animation-delay: 0.35s; }
-        .hero h1 span:nth-child(3) { animation-delay: 0.4s; }
+        .hero h1 span:nth-child(1) { animation-delay: 0.3s; } /* A */
+        .hero h1 span:nth-child(2) { animation-delay: 0.35s; } /* U */
+        .hero h1 span:nth-child(3) { animation-delay: 0.4s; }  /* S */
+        .hero h1 span:nth-child(4) { animation-delay: 0.45s; } /* T */
+        .hero h1 span:nth-child(5) { animation-delay: 0.5s; }  /* I */
+        .hero h1 span:nth-child(6) { animation-delay: 0.55s; } /* N */
+        /* Break */
+        .hero h1 span:nth-child(7) { animation-delay: 0.65s; } /* M */
+        .hero h1 span:nth-child(8) { animation-delay: 0.7s; }  /* A */
+        .hero h1 span:nth-child(9) { animation-delay: 0.75s; } /* R */
+        .hero h1 span:nth-child(10) { animation-delay: 0.8s; } /* S */
+        .hero h1 span:nth-child(11) { animation-delay: 0.85s; } /* H */
+        .hero h1 span:nth-child(12) { animation-delay: 0.9s; }  /* A */
+        .hero h1 span:nth-child(13) { animation-delay: 0.95s; } /* L */
+        .hero h1 span:nth-child(14) { animation-delay: 1.0s; }  /* L */
         /* ... add more for longer names */
+
         .hero p.intro {
-            font-size: clamp(1rem, 2.5vw, 1.3rem);
-            color: white; /* Changed to white for better readability on dark image */
-            max-width: 600px;
-            margin: 0 auto 20px;
-            opacity: 0;
-            transform: translateY(10px);
-            animation: revealText 0.8s ease-out 0.8s forwards;
-            text-shadow: 0 0 10px rgba(0,0,0,0.8); /* Added subtle text shadow for contrast */
-        }
-
-        @keyframes fadeInNav {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeInContent {
-             from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes revealChar {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        @keyframes revealText {
-             to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-
-        /* Section Styling */
-        section {
-            padding: 80px 0;
-        }
-        .section-title {
-            font-family: var(--font-header);
-            font-size: clamp(1.8rem, 4vw, 2.8rem);
-            font-weight: 400;
-            text-align: center;
-            margin-bottom: 60px;
-            color: var(--color-text);
-            position: relative;
-        }
-        .section-title::after { /* Subtle chrome line */
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--color-chrome-light), var(--color-chrome-medium), var(--color-chrome-light));
-            margin: 15px auto 0;
-            border-radius: 2px;
-        }
-
-        /* Gallery Section */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px; /* Subtle rounded corners */
-            cursor: pointer;
-            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            background-color: #eee; /* Placeholder bg for loading images */
-        }
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.5s ease-in-out;
-            opacity: 0; /* Fade in on load */
-        }
-        .gallery-item img.loaded {
-            opacity: 1;
-        }
-        .gallery-item:hover {
-            transform: scale(1.03);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-        .gallery-item:hover img {
-            /* transform: scale(1.05); Optional further zoom */
-        }
-        .gallery-item .overlay-info { /* Info shown on hover, very subtle */
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 15px;
-            background: linear-gradient(transparent, rgba(0,0,0,0.5));
+            /* ... (Your existing CSS rules for .hero p.intro) ... */
+            /* Ensure the text color is white for readability against the background image */
             color: white;
-            font-size: 0.9rem;
-            opacity: 0;
-            transform: translateY(10px);
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-        .gallery-item:hover .overlay-info {
-            opacity: 1;
-            transform: translateY(0);
+            text-shadow: 0 0 10px rgba(0,0,0,0.8);
         }
 
-        /* Lightbox */
-        .lightbox {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 2000;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0s linear 0.3s;
-            padding: 20px;
-        }
-        .lightbox.active {
-            opacity: 1;
-            visibility: visible;
-            transition-delay: 0s;
-        }
-        .lightbox-content {
-            position: relative;
-            max-width: 90%;
-            max-height: 90%;
-        }
-        .lightbox-content img {
-            display: block;
-            max-width: 100%;
-            max-height: 100vh; /* ensure it fits viewport height too */
-            object-fit: contain;
-            border-radius: 4px;
-            box-shadow: 0 0 30px rgba(255,255,255,0.1); /* Subtle glow */
-        }
-        .lightbox-close {
-            position: absolute;
-            top: -35px; /* Adjusted for better visibility */
-            right: -5px;
-            color: var(--color-bg);
-            font-size: 2.5rem;
-            font-weight: 300;
-            text-decoration: none;
-            cursor: pointer;
-            background: none;
-            border: none;
-            line-height: 1;
-            padding: 5px;
-        }
-         .lightbox-close:hover {
-             color: var(--color-sky-blue-soft);
-         }
-
-
-        /* About Section */
-        .about-card {
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 40px;
-            background-color: rgba(255, 255, 255, 0.7); /* Transparent white card */
-            backdrop-filter: blur(8px); /* More blur for a frosted glass effect if desired */
-            border-radius: 12px; /* Slightly larger radius for Y2K plastic feel */
-            border: 1px solid;
-            border-image-slice: 1;
-            border-width: 2px;
-            border-image-source: var(--color-iridescent-accent);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
-        }
-        .about-card p {
-            margin-bottom: 1.2em;
-            color: var(--color-text);
-            font-size: 1.05rem;
-        }
-        .about-card p:last-child {
-            margin-bottom: 0;
-        }
-
-        /* Contact Section */
-        .contact-info { /* New style for direct contact info */
-            max-width: 650px;
-            margin: 0 auto;
-            padding: 40px;
-            background-color: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(8px);
-            border-radius: 12px;
-            border: 1px solid;
-            border-image-slice: 1;
-            border-width: 2px;
-            border-image-source: var(--color-iridescent-accent);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
-            text-align: center; /* Center the text for simplicity */
-        }
-        .contact-info p {
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-            color: var(--color-text);
-        }
-        .contact-info p:last-child { margin-bottom: 0; }
-        .contact-info a {
-            color: var(--color-text);
-            text-decoration: none;
-            font-weight: 500;
-            position: relative;
-        }
-        .contact-info a::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--color-iridescent-accent);
-            transition: width 0.3s ease;
-        }
-        .contact-info a:hover {
-            color: var(--color-sky-blue-soft);
-        }
-        .contact-info a:hover::after {
-            width: 100%;
-        }
-
-        .contact-form {
-            max-width: 650px;
-            margin: 0 auto;
-            margin-top: 40px; /* Space between info and form */
-        }
-        .form-group {
-            margin-bottom: 25px;
-        }
-        .form-group label {
-            display: block;
-            font-weight: 500;
-            margin-bottom: 8px;
-            color: var(--color-text-muted);
-            font-size: 0.9rem;
-        }
-        .form-group input[type="text"],
-        .form-group input[type="email"],
-        .form-group textarea {
-            width: 100%;
-            padding: 15px; /* More padding */
-            background-color: var(--color-bg);
-            border: 1px solid var(--color-chrome-light); /* Chrome-like border */
-            border-radius: 6px; /* Slightly rounded Y2K input */
-            color: var(--color-text);
-            font-family: var(--font-body);
-            font-size: 1rem;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-        .form-group input[type="text"]:focus,
-        .form-group input[type="email"]:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--color-sky-blue-soft);
-            box-shadow: 0 0 0 3px var(--glow-color); /* Subtle glow on focus */
-        }
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        .submit-btn {
-            display: inline-block;
-            padding: 15px 30px;
-            font-family: var(--font-header); /* Header font for button */
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--color-text);
-            background-image: linear-gradient(to bottom, var(--color-chrome-light), var(--color-chrome-medium)); /* Metallic gradient */
-            border: 1px solid var(--color-chrome-dark);
-            border-radius: 6px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .submit-btn:hover {
-            background-image: linear-gradient(to bottom, #f0f0f0, var(--color-chrome-light));
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1), 0 0 10px var(--glow-color); /* Added subtle glow */
-            transform: translateY(-2px);
-        }
-         .submit-btn:active {
-            transform: translateY(0);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 50px 0 30px;
-            margin-top: 50px;
-            font-size: 0.9rem;
-            color: var(--color-text-muted);
-            border-top: 1px solid var(--color-chrome-light);
-        }
-        footer p a {
-            color: var(--color-text);
-            text-decoration: none;
-        }
-        footer p a:hover {
-            text-decoration: underline;
-            color: var(--color-sky-blue-soft);
-        }
+        /* ... (Rest of your CSS) ... */
 
         /* Responsive Adjustments */
         @media (max-width: 768px) {
-            .nav-links { display: none; /* For simplicity, hide on mobile. Could implement a burger menu. */ }
-            nav .container { justify-content: center; } /* Center logo if no links */
-            .hero { min-height: 70vh; }
-            .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
-            section { padding: 60px 0; }
-            .section-title { margin-bottom: 40px; }
-            .about-card, .contact-info { padding: 30px; }
+            /* ... (Your existing responsive adjustments) ... */
+            .hero h1 {
+                font-size: clamp(2rem, 8vw, 4rem); /* Adjust font size more aggressively on small screens */
+            }
         }
-
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="container">
-            <a href="#" class="nav-logo">MARSHALL PHOTOGRAPHY</a>
-            <ul class="nav-links">
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+        </nav>
 
     <header class="hero" id="home">
         <div class="container">
             <div class="hero-content">
                 <h1>
-                    <span>A</span><span>U</span><span>S</span><span>T</span><span>I</span><span>N</span> <span>M</span><span>A</span><span>R</span><span>S</span><span>H</span><span>A</span><span>L</span><span>L</span>
+                    <span>A</span><span>U</span><span>S</span><span>T</span><span>I</span><span>N</span><br><span>M</span><span>A</span><span>R</span><span>S</span><span>H</span><span>A</span><span>L</span><span>L</span>
                 </h1>
                 <p class="intro">Through the lens, I capture landscapes, moments, and the people I love. My passion is creating images that tell a story and bring joy.</p>
             </div>
@@ -511,195 +93,16 @@
     </header>
 
     <main>
-        <section id="gallery">
-            <div class="container">
-                <h2 class="section-title">Photo_Stream</h2>
-                <div class="gallery-grid">
-                                        <div class="gallery-item">
-                        <img src="https://i.imgur.com/9uyZDjd.jpeg" alt="Macro Flower Shot" data-title="Chromatic Bloom" data-description="Close-up detail of a vibrant flower.">
-                        <div class="overlay-info">Chromatic Bloom</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/zicF0Xp.jpeg" alt="Minimalist Landscape" data-title="Silent Horizon" data-description="A serene, minimalist landscape.">
-                        <div class="overlay-info">Silent Horizon</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/rIpevMp.jpeg" alt="Urban Architecture" data-title="Geometric Echoes" data-description="Striking lines of modern architecture.">
-                        <div class="overlay-info">Geometric Echoes</div>
-                    </div>
-                     <div class="gallery-item">
-                        <img src="https://i.imgur.com/rgQwDGb.jpeg" alt="Portrait in Shadow" data-title="Ephemeral Form" data-description="A study of light and shadow on a face.">
-                         <div class="overlay-info">Ephemeral Form</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/JxBWWaR.jpeg" alt="Retro Tech Detail" data-title="Digital Relic" data-description="Close up of a vintage computer component.">
-                        <div class="overlay-info">Digital Relic</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/G13Nsoq.jpeg" alt="Digital Relic" data-title="Digital Relic" data-description="Close up of a vintage computer component.">
-                        <div class="overlay-info">Digital Relic</div>
-                    </div>
-		            <div class="gallery-item">
-                        <img src="https://i.imgur.com/YHXFLwZ.jpeg" alt="Retro Tech Detail" data-title="Digital Relic" data-description="Close up of a vintage computer component.">
-                        <div class="overlay-info">Digital Relic</div>
-                    </div>
-		            <div class="gallery-item">
-                        <img src="https://i.imgur.com/KreThLw.jpeg" alt="Retro Tech Detail" data-title="Digital Relic" data-description="Close up of a vintage computer component.">
-                        <div class="overlay-info">Digital Relic</div>
-                    </div>
-		            <div class="gallery-item">
-                        <img src="https://i.imgur.com/REaxsIZ.jpeg" alt="Retro Tech Detail" data-title="Digital Relic" data-description="Close up of a vintage computer component.">
-                        <div class="overlay-info">Digital Relic</div>
-                    </div>
-		            <div class="gallery-item">
-                        <img src="https://i.imgur.com/kpodzCt.jpeg" alt="Retro Tech Detail" data-title="Digital Relic" data-description="Close up of a vintage computer component.">
-                        <div class="overlay-info">Digital Relic</div>
-	                    </div>
-	                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/6mGljiy.jpeg" alt="Retro Tech Detail" data-title="Digital Relic" data-description="Close up of a vintage computer component.">
-                        <div class="overlay-info">Digital Relic</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/NEuqZwY.jpeg" alt="Retro Tech Detail" data-title="Digital Relic" data-description="Close up of a vintage computer component.">
-                        <div class="overlay-info">Digital Relic</div>
-</div>
-	                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/fJs1dJQ.jpeg" alt="Retro Tech Detail" data-title="Digital Relic" data-description="Close up of a vintage computer component.">
-                        <div class="overlay-info">Digital Relic</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/yknIEyv.jpeg" alt="Retro Tech Detail" data-title="Digital Relic" data-description="Close up of a vintage computer component.">
-                        <div class="overlay-info">Digital Relic</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="about">
-            <div class="container">
-                <h2 class="section-title">About_Protocol</h2>
-                <div class="about-card">
-                    <p>
-                        I'm Austin Marshall, and welcome to Marshall Photography. I used to dislike having my picture taken, but everything changed when I started seeing the world through a camera lens. Whether it's close-up details or sweeping landscapes, I found a passion for capturing moments and subjects I care about.
-                    </p>
-                    <p>
-                        I especially enjoy the editing process, transforming raw images into something new and unique. The greatest reward is seeing others enjoy what I've created. My work includes portraits, nature photography (wildlife and landscapes), and event photography for graduations, family gatherings, outings, and professional headshots. For me, taking pictures is a fulfilling way to collect memories and preserve the things that matter most.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact">
-            <div class="container">
-                <h2 class="section-title">Connect_</h2>
-                <div class="contact-info">
-                    <p><strong>Austin Wood Marshall</strong></p>
-                    <p>Email: <a href="mailto:austinmarshall620@gmail.com">austinmarshall620@gmail.com</a></p>
-                    <p>Phone: <a href="tel:765-252-9354">765-252-9354</a></p>
-                </div>
-
-                <form class="contact-form" action="#" method="POST">
-                    <div class="form-group">
-                        <label for="name">Your Name_</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email Address_</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message_</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Transmission</button>
-                </form>
-            </div>
-        </section>
-    </main>
+        </main>
 
     <footer>
-        <div class="container">
-            <p>© <span id="year"></span> Marshall Photography by Austin Marshall. All visuals captured by Austin Marshall.</p>
-            <p>Designed and built by Austin Marshall.</p>
-        </div>
-    </footer>
+        </footer>
 
     <div class="lightbox" id="lightbox">
-        <div class="lightbox-content">
-            <img src="" alt="Lightbox image" id="lightbox-img">
-            <button class="lightbox-close" id="lightbox-close">×</button>
         </div>
-    </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Lazy load images and fade in
-            const galleryImages = document.querySelectorAll('.gallery-item img');
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src || img.src; // Ensure src is set if data-src isn't used or it's already loaded
-                        img.onload = () => {
-                            img.classList.add('loaded');
-                        };
-                        observer.unobserve(img);
-                    }
-                });
-            }, { rootMargin: "0px 0px 100px 0px" }); // Load when 100px from viewport bottom
-
-            galleryImages.forEach(img => {
-                if (img.dataset.src) { // If using data-src for true lazy loading
-                     imageObserver.observe(img);
-                } else { // If src is already set, just handle onload for fade
-                    if (img.complete) {
-                        img.classList.add('loaded');
-                    } else {
-                        img.onload = () => img.classList.add('loaded');
-                    }
-                }
-            });
-
-            // Lightbox Functionality
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImg = document.getElementById('lightbox-img');
-            const lightboxClose = document.getElementById('lightbox-close');
-            const galleryItems = document.querySelectorAll('.gallery-item');
-
-            galleryItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    const imgSrc = item.querySelector('img').src;
-                    lightboxImg.src = imgSrc;
-                    lightbox.classList.add('active');
-                    document.body.style.overflow = 'hidden'; // Prevent background scroll
-                });
-            });
-
-            const closeLightbox = () => {
-                lightbox.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            };
-
-            lightboxClose.addEventListener('click', closeLightbox);
-            lightbox.addEventListener('click', (e) => { // Close if clicked outside the image
-                if (e.target === lightbox) {
-                    closeLightbox();
-                }
-            });
-            document.addEventListener('keydown', (e) => { // Close with Escape key
-                if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-                    closeLightbox();
-                }
-            });
-
-            // Update year in footer
-            document.getElementById('year').textContent = new Date().getFullYear();
-
-            // Hero name animation (ensure spans are set up in HTML)
-            const heroNameSpans = document.querySelectorAll('.hero h1 span');
-            // The CSS handles the staggered animation, this is just to ensure JS runs after DOM ready
-            // Could add more complex JS-driven animations here if desired.
-        });
+        // ... (Your existing JavaScript code) ...
     </script>
 </body>
 </html>
