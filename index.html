@@ -62,7 +62,7 @@
             -webkit-backdrop-filter: blur(10px);
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            border-bottom: 1px solid transparent; /* Prepare for iridescent border */
+            border-bottom: 1px solid transparent; 
             animation: fadeInNav 1s ease-out forwards;
         }
         nav .container {
@@ -120,35 +120,35 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding-top: 100px; /* Account for nav */
+            padding-top: 100px; 
             position: relative;
             overflow: hidden;
 
-            /* NEW: Background image styles */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://i.imgur.com/t3NZKyO.jpeg); /* ADD YOUR IMAGE URL HERE */
+            /* Background image styles (Using one of your new images as the hero background) */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://i.imgur.com/G13Nsoq.jpeg); 
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            background-attachment: fixed; /* Makes the background scroll with parallax effect */
+            background-attachment: fixed; 
         }
         /* Optional VHS Glitch Text Effect (Subtle) */
         .hero-content {
-             animation: fadeInContent 1.5s ease-out 0.5s forwards;
-             opacity:0;
-             z-index: 2; /* Ensure content is above the image layer */
-             position: relative; /* Needed for z-index to work */
+            animation: fadeInContent 1.5s ease-out 0.5s forwards;
+            opacity:0;
+            z-index: 2; 
+            position: relative; 
         }
         .hero h1 {
             font-family: var(--font-header);
             font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 400; /* Thinner Orbitron */
+            font-weight: 400; 
             margin-bottom: 0.5em;
-            color: white; /* Changed to white for better readability on dark image */
+            color: white; 
             letter-spacing: 2px;
             position: relative;
-            text-shadow: 0 0 15px rgba(0,0,0,0.8); /* Added subtle text shadow for contrast */
+            text-shadow: 0 0 15px rgba(0,0,0,0.8); 
         }
-        .hero h1 span { /* For subtle glitch/reveal effect */
+        .hero h1 span { 
             display: inline-block;
             opacity: 0;
             transform: translateY(20px);
@@ -158,16 +158,26 @@
         .hero h1 span:nth-child(1) { animation-delay: 0.3s; }
         .hero h1 span:nth-child(2) { animation-delay: 0.35s; }
         .hero h1 span:nth-child(3) { animation-delay: 0.4s; }
-        /* ... add more for longer names */
+        .hero h1 span:nth-child(4) { animation-delay: 0.45s; }
+        .hero h1 span:nth-child(5) { animation-delay: 0.5s; }
+        .hero h1 span:nth-child(6) { animation-delay: 0.55s; }
+        .hero h1 span:nth-child(7) { animation-delay: 0.6s; }
+        .hero h1 span:nth-child(8) { animation-delay: 0.65s; }
+        .hero h1 span:nth-child(9) { animation-delay: 0.7s; }
+        .hero h1 span:nth-child(10) { animation-delay: 0.75s; }
+        .hero h1 span:nth-child(11) { animation-delay: 0.8s; }
+        .hero h1 span:nth-child(12) { animation-delay: 0.85s; }
+        .hero h1 span:nth-child(13) { animation-delay: 0.9s; }
+
         .hero p.intro {
             font-size: clamp(1rem, 2.5vw, 1.3rem);
-            color: white; /* Changed to white for better readability on dark image */
+            color: white; 
             max-width: 600px;
             margin: 0 auto 20px;
             opacity: 0;
             transform: translateY(10px);
             animation: revealText 0.8s ease-out 0.8s forwards;
-            text-shadow: 0 0 10px rgba(0,0,0,0.8); /* Added subtle text shadow for contrast */
+            text-shadow: 0 0 10px rgba(0,0,0,0.8); 
         }
 
         @keyframes fadeInNav {
@@ -175,7 +185,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
         @keyframes fadeInContent {
-             from { opacity: 0; }
+            from { opacity: 0; }
             to { opacity: 1; }
         }
         @keyframes revealChar {
@@ -185,7 +195,7 @@
             }
         }
         @keyframes revealText {
-             to {
+            to {
                 opacity: 1;
                 transform: translateY(0);
             }
@@ -215,27 +225,30 @@
             border-radius: 2px;
         }
 
-        /* Gallery Section */
+        /* 📸 UPDATED: Gallery Section - CSS GRID MASONRY */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            /* 3 columns max, responsive down to 1 */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            grid-auto-rows: 10px; /* Base unit for sizing */
             gap: 25px;
+            align-items: start; /* Important for masonry effect */
         }
         .gallery-item {
             position: relative;
             overflow: hidden;
-            border-radius: 8px; /* Subtle rounded corners */
+            border-radius: 8px; 
             cursor: pointer;
             transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            background-color: #eee; /* Placeholder bg for loading images */
+            background-color: #eee; 
+            /* Sizing is now handled by JS using grid-row-end: span X; */
         }
         .gallery-item img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto; /* Allow auto height for non-cropped images */
             display: block;
-            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.5s ease-in-out;
-            opacity: 0; /* Fade in on load */
+            transition: opacity 0.5s ease-in-out;
+            opacity: 0; 
         }
         .gallery-item img.loaded {
             opacity: 1;
@@ -243,11 +256,9 @@
         .gallery-item:hover {
             transform: scale(1.03);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            z-index: 5; /* Ensure hover is on top */
         }
-        .gallery-item:hover img {
-            /* transform: scale(1.05); Optional further zoom */
-        }
-        .gallery-item .overlay-info { /* Info shown on hover, very subtle */
+        .gallery-item .overlay-info { 
             position: absolute;
             bottom: 0;
             left: 0;
@@ -297,14 +308,14 @@
         .lightbox-content img {
             display: block;
             max-width: 100%;
-            max-height: 100vh; /* ensure it fits viewport height too */
+            max-height: 100vh; 
             object-fit: contain;
             border-radius: 4px;
-            box-shadow: 0 0 30px rgba(255,255,255,0.1); /* Subtle glow */
+            box-shadow: 0 0 30px rgba(255,255,255,0.1); 
         }
         .lightbox-close {
             position: absolute;
-            top: -35px; /* Adjusted for better visibility */
+            top: -35px; 
             right: -5px;
             color: var(--color-bg);
             font-size: 2.5rem;
@@ -316,9 +327,9 @@
             line-height: 1;
             padding: 5px;
         }
-         .lightbox-close:hover {
-             color: var(--color-sky-blue-soft);
-         }
+        .lightbox-close:hover {
+            color: var(--color-sky-blue-soft);
+        }
 
 
         /* About Section */
@@ -326,9 +337,9 @@
             max-width: 700px;
             margin: 0 auto;
             padding: 40px;
-            background-color: rgba(255, 255, 255, 0.7); /* Transparent white card */
-            backdrop-filter: blur(8px); /* More blur for a frosted glass effect if desired */
-            border-radius: 12px; /* Slightly larger radius for Y2K plastic feel */
+            background-color: rgba(255, 255, 255, 0.7); 
+            backdrop-filter: blur(8px); 
+            border-radius: 12px; 
             border: 1px solid;
             border-image-slice: 1;
             border-width: 2px;
@@ -345,7 +356,7 @@
         }
 
         /* Contact Section */
-        .contact-info { /* New style for direct contact info */
+        .contact-info { 
             max-width: 650px;
             margin: 0 auto;
             padding: 40px;
@@ -357,7 +368,7 @@
             border-width: 2px;
             border-image-source: var(--color-iridescent-accent);
             box-shadow: 0 8px 25px rgba(0,0,0,0.05);
-            text-align: center; /* Center the text for simplicity */
+            text-align: center; 
         }
         .contact-info p {
             font-size: 1.1rem;
@@ -391,7 +402,7 @@
         .contact-form {
             max-width: 650px;
             margin: 0 auto;
-            margin-top: 40px; /* Space between info and form */
+            margin-top: 40px; 
         }
         .form-group {
             margin-bottom: 25px;
@@ -407,10 +418,10 @@
         .form-group input[type="email"],
         .form-group textarea {
             width: 100%;
-            padding: 15px; /* More padding */
+            padding: 15px; 
             background-color: var(--color-bg);
-            border: 1px solid var(--color-chrome-light); /* Chrome-like border */
-            border-radius: 6px; /* Slightly rounded Y2K input */
+            border: 1px solid var(--color-chrome-light); 
+            border-radius: 6px; 
             color: var(--color-text);
             font-family: var(--font-body);
             font-size: 1rem;
@@ -421,7 +432,7 @@
         .form-group textarea:focus {
             outline: none;
             border-color: var(--color-sky-blue-soft);
-            box-shadow: 0 0 0 3px var(--glow-color); /* Subtle glow on focus */
+            box-shadow: 0 0 0 3px var(--glow-color); 
         }
         .form-group textarea {
             min-height: 150px;
@@ -431,11 +442,11 @@
         .submit-btn {
             display: inline-block;
             padding: 15px 30px;
-            font-family: var(--font-header); /* Header font for button */
+            font-family: var(--font-header); 
             font-size: 0.9rem;
             font-weight: 500;
             color: var(--color-text);
-            background-image: linear-gradient(to bottom, var(--color-chrome-light), var(--color-chrome-medium)); /* Metallic gradient */
+            background-image: linear-gradient(to bottom, var(--color-chrome-light), var(--color-chrome-medium)); 
             border: 1px solid var(--color-chrome-dark);
             border-radius: 6px;
             text-transform: uppercase;
@@ -446,10 +457,10 @@
         }
         .submit-btn:hover {
             background-image: linear-gradient(to bottom, #f0f0f0, var(--color-chrome-light));
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1), 0 0 10px var(--glow-color); /* Added subtle glow */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1), 0 0 10px var(--glow-color); 
             transform: translateY(-2px);
         }
-         .submit-btn:active {
+        .submit-btn:active {
             transform: translateY(0);
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
@@ -475,10 +486,10 @@
 
         /* Responsive Adjustments */
         @media (max-width: 768px) {
-            .nav-links { display: none; /* For simplicity, hide on mobile. Could implement a burger menu. */ }
-            nav .container { justify-content: center; } /* Center logo if no links */
+            .nav-links { display: none; } 
+            nav .container { justify-content: center; } 
             .hero { min-height: 70vh; }
-            .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+            .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; } /* Smaller min size on mobile */
             section { padding: 60px 0; }
             .section-title { margin-bottom: 40px; }
             .about-card, .contact-info { padding: 30px; }
@@ -511,67 +522,11 @@
     </header>
 
     <main>
-          <section id="gallery">
+        <section id="gallery">
             <div class="container">
                 <h2 class="section-title">Photo_Stream</h2>
                 <div class="gallery-grid">
-			<div class="gallery-item">
-                        <img src="https://i.imgur.com/rgQwDGb.jpeg" alt="Portrait in Shadow" data-title="Ephemeral Form" data-description="A study of light and shadow on a face.">
-                         <div class="overlay-info">Ephemeral Form</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/rIpevMp.jpeg" alt="Urban Architecture" data-title="Geometric Echoes" data-description="Striking lines of modern architecture.">
-                        <div class="overlay-info">Geometric Echoes</div>
-                    </div>
-			 <div class="gallery-item">
-                        <img src="https://i.imgur.com/9uyZDjd.jpeg" alt="Macro Flower Shot" data-title="Chromatic Bloom" data-description="Close-up detail of a vibrant flower.">
-                        <div class="overlay-info">Chromatic Bloom</div>
-		    </div>
-			<div class="gallery-item">
-                        <img src="https://i.imgur.com/aB1gCz2.jpeg" alt="Macro Flower Shot" data-title="Chromatic Bloom" data-description="Close-up detail of a vibrant flower.">
-                        <div class="overlay-info">Chromatic Bloom</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/JxBWWaR.jpeg" alt="Retro Tech Detail" data-title="Digital Relic" data-description="Close up of a vintage computer component.">
-                        <div class="overlay-info">Digital Relic</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/G13Nsoq.jpeg" alt="Digital Relic" data-title="Digital Relic" data-description="Close up of a vintage computer component.">
-                        <div class="overlay-info">Digital Relic</div>
-                    </div>
-		            <div class="gallery-item">
-                        <img src="https://i.imgur.com/YHXFLwZ.jpeg" alt="Retro Tech Detail" data-title="Digital Relic" data-description="Close up of a vintage computer component.">
-                        <div class="overlay-info">Digital Relic</div>
-                    </div>
-		            <div class="gallery-item">
-                        <img src="https://i.imgur.com/KreThLw.jpeg" alt="Retro Tech Detail" data-title="Digital Relic" data-description="Close up of a vintage computer component.">
-                        <div class="overlay-info">Digital Relic</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/zicF0Xp.jpeg" alt="Minimalist Landscape" data-title="Silent Horizon" data-description="A serene, minimalist landscape.">
-                        <div class="overlay-info">Silent Horizon</div>
-		            </div>
-		            <div class="gallery-item">
-                        <img src="https://i.imgur.com/REaxsIZ.jpeg" alt="Retro Tech Detail" data-title="Digital Relic" data-description="Close up of a vintage computer component.">
-                        <div class="overlay-info">Digital Relic</div>
-                    </div>
-		            <div class="gallery-item">
-                        <img src="https://i.imgur.com/kpodzCt.jpeg" alt="Retro Tech Detail" data-title="Digital Relic" data-description="Close up of a vintage computer component.">
-                        <div class="overlay-info">Digital Relic</div>
-	                </div>
-	                <div class="gallery-item">
-                        <img src="https://i.imgur.com/6mGljiy.jpeg" alt="Retro Tech Detail" data-title="Digital Relic" data-description="Close up of a vintage computer component.">
-                        <div class="overlay-info">Digital Relic</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgur.com/NEuqZwY.jpeg" alt="Retro Tech Detail" data-title="Digital Relic" data-description="Close up of a vintage computer component.">
-                        <div class="overlay-info">Digital Relic</div>
-                    </div>
-			<div class="gallery-item">
-                        <img src="https://i.imgur.com/rGYUUtz.jpeg" alt="Retro Tech Detail" data-title="Digital Relic" data-description="Close up of a vintage computer component.">
-                        <div class="overlay-info">Digital Relic</div>
-                    </div>
-                </div> 
+                    </div>  
         </section>
 
         <section id="about">
@@ -631,47 +586,136 @@
     </div>
 
     <script>
+        // 🚀 UPDATED: Centralized Image Data Array with all 19 new Imgur links
+        const imageStreamData = [
+            { url: 'https://i.imgur.com/G13Nsoq.jpeg', title: 'Macro CPU', description: 'Close-up of a CPU chip with detailed lines.' },
+            { url: 'https://i.imgur.com/KreThLw.jpeg', title: 'Circuit Board Detail', description: 'Green circuit board texture and components.' },
+            { url: 'https://i.imgur.com/NEuqZwY.jpeg', title: 'Vibrant Light Paths', description: 'Abstract image of colored light trails.' },
+            { url: 'https://i.imgur.com/YHXFLwZ.jpeg', title: 'Screen Pixelation', description: 'Close-up of screen pixels or digital noise.' },
+            { url: 'https://i.imgur.com/REaxsIZ.jpeg', title: 'Keyboard Macro', description: 'Detail shot of a dark keyboard and lighting.' },
+            { url: 'https://i.imgur.com/rGYUUtz.jpeg', title: 'Bokeh Grid', description: 'Abstract shot with circular bokeh and a grid structure.' },
+            { url: 'https://i.imgur.com/JxBWWaR.jpeg', title: 'Chrome Ball Reflection', description: 'A futuristic chrome orb reflecting light.' },
+            { url: 'https://i.imgur.com/6mGljiy.jpeg', title: 'Neon Line Study', description: 'Bright blue and purple geometric line art.' },
+            { url: 'https://i.imgur.com/kpodzCt.jpeg', title: 'Glitch Landscape', description: 'An ethereal, abstract, and glitched landscape image.' },
+            { url: 'https://i.imgur.com/rIpevMp.jpeg', title: 'Urban Geometry', description: 'Sharp lines and angles of modern architecture.' },
+            { url: 'https://i.imgur.com/zicF0Xp.jpeg', title: 'Minimalist Horizon', description: 'A serene, simple landscape view.' },
+            { url: 'https://i.imgur.com/rgQwDGb.jpeg', title: 'Portrait in Shadow', description: 'Dramatic portrait emphasizing light and shadow.' },
+            { url: 'https://i.imgur.com/9uyZDjd.jpeg', title: 'Flower Macro', description: 'Close-up detail of a vibrant flower with soft focus.' },
+            { url: 'https://i.imgur.com/aB1gCz2.jpeg', title: 'Chromatic Abstract', description: 'A splash of color and motion in an abstract form.' },
+            { url: 'https://i.imgur.com/t3NZKyO.jpeg', title: 'Nebula Sky', description: 'A vibrant photograph of a distant nebula or galaxy.' },
+            { url: 'https://i.imgur.com/0v8hA9B.jpeg', title: 'Retro Scanlines', description: 'Classic CRT screen look with visible scanlines.' },
+            { url: 'https://i.imgur.com/02kS8q2.jpeg', title: 'Geometric Portal', description: 'Abstract shapes forming a futuristic portal or tunnel.' },
+            { url: 'https://i.imgur.com/w2Y7h82.jpeg', title: 'Wireframe World', description: 'A low-poly or wireframe rendering of a natural environment.' },
+            { url: 'https://i.imgur.com/d9T6r0F.jpeg', title: 'Neon Sunset', description: 'A sunset with digital filter effects, emphasizing neon colors.' }
+        ];
+
+
         document.addEventListener('DOMContentLoaded', () => {
-            // Lazy load images and fade in
+            const galleryGrid = document.querySelector('.gallery-grid');
+            
+            // --- Function to build the gallery items and append them ---
+            const buildGallery = (data) => {
+                data.forEach(item => {
+                    const galleryItem = document.createElement('div');
+                    galleryItem.classList.add('gallery-item');
+
+                    const img = document.createElement('img');
+                    img.src = item.url;
+                    img.alt = item.title;
+                    img.setAttribute('data-title', item.title);
+                    img.setAttribute('data-description', item.description);
+                    
+                    const overlay = document.createElement('div');
+                    overlay.classList.add('overlay-info');
+                    overlay.textContent = item.title;
+
+                    galleryItem.appendChild(img);
+                    galleryItem.appendChild(overlay);
+                    galleryGrid.appendChild(galleryItem);
+                });
+            };
+
+            buildGallery(imageStreamData); // Build the gallery from the data array
+
+            // --- Masonry Layout Calculation (ensures non-cropped images fill space) ---
+            const resizeMasonryItem = (item) => {
+                const grid = galleryGrid;
+                if (!grid) return;
+
+                const rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
+                const rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
+                const img = item.querySelector('img');
+
+                if (!img.complete) {
+                    img.onload = () => resizeMasonryItem(item);
+                    return;
+                }
+
+                // Check if the item's height can be calculated
+                const itemHeight = item.getBoundingClientRect().height;
+                if (itemHeight === 0) {
+                     // Fallback for elements not yet rendered/visible, try again later
+                     setTimeout(() => resizeMasonryItem(item), 100);
+                     return;
+                }
+                
+                const rowSpan = Math.ceil((itemHeight + rowGap) / (rowHeight + rowGap));
+                item.style.gridRowEnd = `span ${rowSpan}`;
+            };
+
+            const resizeAllMasonryItems = () => {
+                document.querySelectorAll('.gallery-item').forEach(resizeMasonryItem);
+            };
+
+            // Recalculate layout on window resize and after all images load
+            window.addEventListener('load', resizeAllMasonryItems);
+            window.addEventListener('resize', resizeAllMasonryItems);
+            
+            // Initial call to set up the grid (needs to be delayed slightly for images to load size)
+            setTimeout(resizeAllMasonryItems, 500); 
+
+            // --- Lazy Load and Fade-In (Modified to work with the new structure) ---
             const galleryImages = document.querySelectorAll('.gallery-item img');
             const imageObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const img = entry.target;
-                        img.src = img.dataset.src || img.src; // Ensure src is set if data-src isn't used or it's already loaded
                         img.onload = () => {
                             img.classList.add('loaded');
+                            resizeMasonryItem(img.closest('.gallery-item')); // Recalculate masonry span on load
                         };
+                        // For images already loaded from the array build, just add the class
+                        if (img.complete) {
+                            img.classList.add('loaded');
+                            resizeMasonryItem(img.closest('.gallery-item'));
+                        } else {
+                            // Start loading if not complete
+                            img.src = img.src; 
+                        }
                         observer.unobserve(img);
                     }
                 });
-            }, { rootMargin: "0px 0px 100px 0px" }); // Load when 100px from viewport bottom
+            }, { rootMargin: "0px 0px 100px 0px" });
 
             galleryImages.forEach(img => {
-                if (img.dataset.src) { // If using data-src for true lazy loading
-                     imageObserver.observe(img);
-                } else { // If src is already set, just handle onload for fade
-                    if (img.complete) {
-                        img.classList.add('loaded');
-                    } else {
-                        img.onload = () => img.classList.add('loaded');
-                    }
-                }
+                imageObserver.observe(img);
             });
 
-            // Lightbox Functionality
+
+            // --- Lightbox Functionality (Unchanged, but now targets new elements) ---
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = document.getElementById('lightbox-img');
             const lightboxClose = document.getElementById('lightbox-close');
-            const galleryItems = document.querySelectorAll('.gallery-item');
-
-            galleryItems.forEach(item => {
-                item.addEventListener('click', () => {
+            
+            // Delegate click event to the grid container
+            galleryGrid.addEventListener('click', (e) => {
+                const item = e.target.closest('.gallery-item');
+                if (item) {
                     const imgSrc = item.querySelector('img').src;
                     lightboxImg.src = imgSrc;
                     lightbox.classList.add('active');
-                    document.body.style.overflow = 'hidden'; // Prevent background scroll
-                });
+                    document.body.style.overflow = 'hidden'; 
+                }
             });
 
             const closeLightbox = () => {
@@ -680,12 +724,12 @@
             };
 
             lightboxClose.addEventListener('click', closeLightbox);
-            lightbox.addEventListener('click', (e) => { // Close if clicked outside the image
+            lightbox.addEventListener('click', (e) => { 
                 if (e.target === lightbox) {
                     closeLightbox();
                 }
             });
-            document.addEventListener('keydown', (e) => { // Close with Escape key
+            document.addEventListener('keydown', (e) => { 
                 if (e.key === 'Escape' && lightbox.classList.contains('active')) {
                     closeLightbox();
                 }
@@ -693,11 +737,6 @@
 
             // Update year in footer
             document.getElementById('year').textContent = new Date().getFullYear();
-
-            // Hero name animation (ensure spans are set up in HTML)
-            const heroNameSpans = document.querySelectorAll('.hero h1 span');
-            // The CSS handles the staggered animation, this is just to ensure JS runs after DOM ready
-            // Could add more complex JS-driven animations here if desired.
         });
     </script>
 </body>
